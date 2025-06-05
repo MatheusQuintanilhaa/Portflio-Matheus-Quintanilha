@@ -50,19 +50,19 @@ export default function Header({ activeSection, onNavigate }: HeaderProps) {
         hideHeader ? "-translate-y-full" : "translate-y-0"
       }`}
     >
-      <nav className="container mx-auto px-4 py-4">
+      <nav className="px-4 md:px-[100px] lg:px-[200px] xl:px-[300px] 2xl:px-[566px] pt-10 pb-10">
         <ul className="flex justify-center space-x-8">
           {menuItems.map((item) => (
             <li key={item.id}>
               <button
                 onClick={() => onNavigate(item.id)}
-                className="relative px-6 py-3 rounded-full overflow-hidden group text-gray-300 hover:text-white hover:bg-black font-semibold text-xl"
+                className="relative px-6 py-3 rounded-full overflow-hidden group text-gray-300 hover:text-white hover:bg-black font-semibold text-xl whitespace-nowrap"
                 style={{
                   fontFamily: "Inter, sans-serif",
                   fontSize: "20px",
+                  fontStyle: "normal",
                   fontWeight: 600,
-                  lineHeight: "auto",
-                  letterSpacing: "0%",
+                  lineHeight: "normal",
                 }}
               >
                 <span
@@ -72,7 +72,6 @@ export default function Header({ activeSection, onNavigate }: HeaderProps) {
                       : "group-hover:animate-border-grow"
                   }`}
                 ></span>
-
                 {item.label}
               </button>
             </li>
