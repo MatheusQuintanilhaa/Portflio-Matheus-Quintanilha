@@ -2,12 +2,13 @@ export default function About() {
   return (
     <section id="sobre" className="pt-[50px] pb-20 relative">
       <div className="container mx-auto px-4 relative">
-        <div className="mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
+        <div className="mx-auto text-left pl-[6px] sm:pl-[8px] md:pl-[216px]">
+          {" "}
+          {/* Alinhamento ajustado */}
+          <h2 className="text-[48px] leading-[100%] font-semibold text-white mb-12 mt-12 max-w-[481px]">
             Matheus Quintanilha
           </h2>
-
-          <div className="space-y-6 text-gray-300 text-lg leading-relaxed max-w-3xl mx-auto">
+          <div className="space-y-6 text-white text-[24px] leading-[160%] font-medium max-w-[1216px]">
             <p>
               Sou um desenvolvedor front-end com experiência na criação e
               manutenção de aplicações web escaláveis. Possuo habilidades
