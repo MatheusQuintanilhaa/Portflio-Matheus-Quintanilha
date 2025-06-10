@@ -4,88 +4,84 @@ export default function Projects() {
       id: 1,
       name: "E-commerce Platform",
       description:
-        "Plataforma de e-commerce desenvolvida com React e TypeScript, com integração de pagamentos.",
-      link: "#",
+        "Aqui vai uma pequena descrição sobre o projeto e as ferramentas utilizadas.",
+      image: "",
     },
     {
       id: 2,
       name: "Dashboard Analytics",
       description:
-        "Dashboard para análise de dados com gráficos interativos usando Chart.js e React.",
-      link: "#",
+        "Aqui vai uma pequena descrição sobre o projeto e as ferramentas utilizadas.",
+      image: "",
     },
     {
       id: 3,
       name: "Task Manager App",
       description:
-        "Aplicativo de gerenciamento de tarefas com drag & drop e notificações em tempo real.",
-      link: "#",
+        "Aqui vai uma pequena descrição sobre o projeto e as ferramentas utilizadas.",
+      image: "",
     },
     {
       id: 4,
       name: "Portfolio Website",
       description:
-        "Site de portfólio responsivo com animações suaves e design moderno.",
-      link: "#",
+        "Aqui vai uma pequena descrição sobre o projeto e as ferramentas utilizadas.",
+      image: "",
     },
     {
       id: 5,
       name: "Weather App",
       description:
-        "Aplicativo de previsão do tempo com geolocalização e interface intuitiva.",
-      link: "#",
+        "Aqui vai uma pequena descrição sobre o projeto e as ferramentas utilizadas.",
+      image: "",
     },
     {
       id: 6,
       name: "Social Media Dashboard",
       description:
-        "Dashboard para gerenciamento de redes sociais com métricas e agendamento de posts.",
-      link: "#",
+        "Aqui vai uma pequena descrição sobre o projeto e as ferramentas utilizadas.",
+      image: "",
     },
   ];
 
   return (
-    <section id="projetos" className="py-20">
-      <div className="container mx-auto px-4">
+    <section id="projetos" className="relative py-32 overflow-hidden bg-black">
+      {/* Gradiente preto em cima (mais alto e suave) */}
+      <div className="absolute top-0 left-0 w-full h-[500px] bg-gradient-to-b from-black to-transparent z-10" />
+
+      {/* Eclipse roxo central, maior e mais suave */}
+      <div className="absolute top-1/2 left-1/2 w-[1000px] h-[3000px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#964CF0] blur-[700px] opacity-30 z-0" />
+
+      {/* Gradiente preto embaixo (começando mais abaixo) */}
+      <div className="absolute bottom-0 left-0 w-full h-[300px] bg-gradient-to-t from-black to-transparent z-10" />
+
+      {/* Conteúdo da seção */}
+      <div className="relative z-20 container mx-auto px-4">
         <div className="text-center mb-16">
-          <span className="inline-block bg-purple-600 text-white px-4 py-2 rounded-full text-sm font-semibold mb-4">
+          <span className="inline-block w-[160px] h-[48px] pt-[12px] pr-[32px] pb-[12px] pl-[32px] rounded-[6px] border-[2px] border-[#964CF0] bg-[#101010] text-white text-sm font-semibold mb-4">
             Trabalhos
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold">Meus projetos</h2>
+          <h2 className="w-[332px] h-[58px] text-[48px] leading-[100%] font-semibold text-center text-white mx-auto mt-7">
+            Meus projetos
+          </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-14 gap-y-14 max-w-6xl mx-auto mt-[81px]">
           {projects.map((project) => (
             <div
               key={project.id}
-              className="border border-gray-700 rounded-lg overflow-hidden hover:transform hover:scale-105 transition-all duration-300"
+              className="w-[384px] h-[327px] rounded-[12px] p-[2px] transition-all duration-300 hover:scale-105 bg-gradient-to-b from-[#964CF0] to-[#170033]"
             >
-              <div className="h-48 bg-gradient-to-br from-purple-600 to-purple-800"></div>
-              <div className="p-6">
-                <h3 className="text-xl font-semibold mb-3">{project.name}</h3>
-                <p className="text-gray-400 mb-4 text-sm leading-relaxed">
-                  {project.description}
-                </p>
-                <a
-                  href={project.link}
-                  className="inline-flex items-center text-purple-400 hover:text-purple-300 transition-colors duration-300"
-                >
-                  Ver mais
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-4 w-4 ml-2"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                    />
-                  </svg>
-                </a>
+              <div className="flex flex-col justify-start h-full rounded-[10px] bg-[#101010]">
+                <div className="w-[352px] h-[156px] rounded-[8px] bg-[#964CF0] mx-auto mt-4"></div>
+                <div className="w-[352px] h-[103px] gap-4 p-1 flex flex-col mx-auto mt-4">
+                  <h3 className="w-[344px] h-[29px] text-white font-inter font-semibold text-[24px] leading-[120%]">
+                    {project.name}
+                  </h3>
+                  <p className="w-[344px] h-[50px] text-white font-inter font-medium text-[18px] leading-[140%]">
+                    {project.description}
+                  </p>
+                </div>
               </div>
             </div>
           ))}

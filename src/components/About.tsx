@@ -4,7 +4,6 @@ export default function About() {
       <div className="container mx-auto px-4 relative">
         <div className="mx-auto text-left pl-[6px] sm:pl-[8px] md:pl-[216px]">
           {" "}
-          {/* Alinhamento ajustado */}
           <h2 className="text-[48px] leading-[100%] font-semibold text-white mb-12 mt-12 max-w-[481px]">
             Matheus Quintanilha
           </h2>
