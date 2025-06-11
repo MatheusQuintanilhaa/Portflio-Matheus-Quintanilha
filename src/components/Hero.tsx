@@ -2,7 +2,7 @@ export default function Hero() {
   return (
     <section
       id="inicio"
-      className="min-h-screen flex relative hero-background font-sans pt-44 md:pt-16"
+      className="min-h-[70vh] md:min-h-screen flex relative hero-background font-sans pt-44 md:pt-16 mb-0"
     >
       {/* Pontinhos animados */}
       <div className="absolute top-20 left-10 w-2 h-2 bg-purple-400 rounded-full animate-pulse"></div>
@@ -17,8 +17,8 @@ export default function Hero() {
             Olá, eu sou
           </p>
           <h1
-            className="text-[#C28FFF] font-sans not-italic leading-normal font-semibold whitespace-nowrap
-            text-[28px] sm:text-[40px] md:text-[56px]"
+            className="text-[#C28FFF] font-sans not-italic leading-normal font-semibold 
+            text-[28px] sm:text-[40px] md:text-[56px] break-words"
           >
             Matheus Quintanilha
           </h1>
@@ -29,33 +29,20 @@ export default function Hero() {
             Desenvolvedor Frontend
           </p>
 
-          <div className="relative inline-block mt-8 sm:mt-10 md:mt-12">
+          <div className="mt-8 sm:mt-10 md:mt-12">
             <a
               href="https://www.linkedin.com/in/matheus-quintanilhadev/"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex px-6 sm:px-8 py-3 sm:py-4 justify-center items-center gap-2.5 rounded-[6px] bg-[#964CF0] relative z-20 text-sm sm:text-base"
+              className="inline-flex px-6 sm:px-8 py-3 sm:py-4 justify-center items-center gap-2.5 rounded-[6px] bg-[#964CF0]
+    text-white font-inter font-semibold text-[20px] leading-[100%]"
             >
               Acessar LinkedIn
             </a>
-
-            <span
-              className="inline-flex items-center justify-center
-                bg-[#101010] text-white text-xs sm:text-sm font-semibold
-                rounded-[6px] border-2 border-[#964CF0]
-                px-6 sm:px-8 py-2 sm:py-3 w-[140px] sm:w-[168px] h-[40px] sm:h-[48px]
-                absolute z-10"
-              style={{
-                top: "335px",
-                left: "6px",
-              }}
-            >
-              Sobre mim
-            </span>
           </div>
         </div>
 
-        <div className="flex max-w-[220px] sm:max-w-[320px] md:max-w-[500px] h-[220px] sm:h-[320px] md:h-[500px] rotate-[4deg] p-0 justify-center items-center relative mb-3">
+        <div className="hidden md:flex max-w-[220px] sm:max-w-[320px] md:max-w-[500px] h-[220px] sm:h-[320px] md:h-[500px] rotate-[4deg] p-0 justify-center items-center relative mb-3">
           <img
             src="/images/icon.svg"
             alt="Ícone"

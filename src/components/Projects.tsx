@@ -58,9 +58,10 @@ export default function Projects() {
       {/* Conteúdo da seção */}
       <div className="relative z-20 container mx-auto px-4">
         <div className="text-center mb-16">
-          <span className="inline-block w-[160px] h-[48px] pt-[12px] pr-[32px] pb-[12px] pl-[32px] rounded-[6px] border-[2px] border-[#964CF0] bg-[#101010] text-white text-sm font-semibold mb-4">
+          <span className="inline-flex items-center justify-center w-[160px] h-[48px] px-[32px] py-[12px] rounded-[6px] border-[2px] border-[#964CF0] bg-[#101010] text-white font-inter font-semibold text-[20px] leading-[100%] text-center align-middle mb-4">
             Trabalhos
           </span>
+
           <h2 className="w-[332px] h-[58px] text-[48px] leading-[100%] font-semibold text-center text-white mx-auto mt-7">
             Meus projetos
           </h2>
