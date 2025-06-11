@@ -61,11 +61,21 @@ function App() {
     >
       <Header activeSection={activeSection} onNavigate={scrollToSection} />
       <main>
-        <Hero />
-        <About />
-        <Projects />
-        <Skills />
-        <Contact />
+        <section id="inicio">
+          <Hero />
+        </section>
+        <section id="sobre">
+          <About />
+        </section>
+        <section id="projetos">
+          <Projects />
+        </section>
+        <section id="conhecimentos">
+          <Skills />
+        </section>
+        <section id="contato">
+          <Contact />
+        </section>
       </main>
     </div>
   );

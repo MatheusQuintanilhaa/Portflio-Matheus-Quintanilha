@@ -10,16 +10,15 @@ export default function Header({ activeSection, onNavigate }: HeaderProps) {
   const [hideHeader, setHideHeader] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  // Lógica para mostrar o header SOMENTE no topo da página
+  // Lógica para mostrar o header somente no topo da página
   useEffect(() => {
     const handleScroll = () => {
-      // Header aparece apenas quando scroll está no topo (0-10px)
       const isAtTop = window.scrollY <= 10;
       setHideHeader(!isAtTop);
     };
 
     window.addEventListener("scroll", handleScroll);
-    handleScroll(); // chama na montagem para definir estado inicial
+    handleScroll(); // chama na montagem
 
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -29,18 +28,6 @@ export default function Header({ activeSection, onNavigate }: HeaderProps) {
     onNavigate(section);
     setIsMobileMenuOpen(false);
   };
-
-  // Fechar menu mobile ao redimensionar para desktop
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth >= 1024) {
-        setIsMobileMenuOpen(false);
-      }
-    };
-
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
 
   const menuItems = [
     { id: "inicio", label: "Início" },
@@ -73,13 +60,7 @@ export default function Header({ activeSection, onNavigate }: HeaderProps) {
                     lineHeight: "normal",
                   }}
                 >
-                  <span
-                    className={`absolute inset-0 rounded-full border-2 border-transparent ${
-                      activeSection === item.id
-                        ? "border-purple-600"
-                        : "group-hover:border-purple-600"
-                    }`}
-                  ></span>
+                  <span className="absolute inset-0 rounded-full border-2 border-transparent group-hover:border-purple-600 group-hover:animate-border-grow"></span>
                   {item.label}
                 </button>
               </li>
