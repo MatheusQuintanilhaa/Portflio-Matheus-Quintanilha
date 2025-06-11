@@ -32,9 +32,16 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-attachment: fixed;
+  background-attachment: scroll; /* Scroll para mobile */
   width: 100%;
   position: relative;
+}
+
+/* Aplica fixed apenas em desktop */
+@media (min-width: 768px) {
+  .hero-background {
+    background-attachment: fixed;
+  }
 }
 
 .hero-background::after {
@@ -60,9 +67,17 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-attachment: fixed;
+  background-attachment: scroll; /* Scroll para mobile */
   z-index: -1;
 }
+
+/* Aplica fixed no ::before apenas para desktop */
+@media (min-width: 768px) {
+  .hero-background::before {
+    background-attachment: fixed;
+  }
+}
+
 /* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
