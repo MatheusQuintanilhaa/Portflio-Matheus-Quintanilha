@@ -7,7 +7,7 @@ import Projects from "./components/Projects";
 import Skills from "./components/Skills";
 
 function App() {
-  const [, setActiveSection] = useState("inicio");
+  const [activeSection, setActiveSection] = useState("inicio");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -59,7 +59,7 @@ function App() {
         backgroundAttachment: "fixed",
       }}
     >
-      <Header onNavigate={scrollToSection} />
+      <Header activeSection={activeSection} onNavigate={scrollToSection} />
       <main>
         <Hero />
         <About />

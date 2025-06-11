@@ -60,13 +60,7 @@ export default function Header({ activeSection, onNavigate }: HeaderProps) {
                     lineHeight: "normal",
                   }}
                 >
-                  <span
-                    className={`absolute inset-0 rounded-full border-2 border-transparent ${
-                      activeSection === item.id
-                        ? "border-purple-600"
-                        : "group-hover:animate-border-grow"
-                    }`}
-                  ></span>
+                  <span className="absolute inset-0 rounded-full border-2 border-transparent group-hover:border-purple-600 group-hover:animate-border-grow"></span>
                   {item.label}
                 </button>
               </li>
