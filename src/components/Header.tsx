@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 
 interface HeaderProps {
@@ -7,54 +7,27 @@ interface HeaderProps {
 }
 
 export default function Header({ activeSection, onNavigate }: HeaderProps) {
-  const [, setIsScrolled] = useState(false);
   const [hideHeader, setHideHeader] = useState(false);
-  const [scrollingDown, setScrollingDown] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const lastScrollY = useRef(0);
 
+  // Lógica para mostrar o header somente no topo da página
   useEffect(() => {
     const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-
-      setIsScrolled(currentScrollY > 10);
-
-      if (currentScrollY > lastScrollY.current) {
-        setScrollingDown(true);
-      } else {
-        setScrollingDown(false);
-      }
-
-      if (scrollingDown && currentScrollY > 50) {
-        setHideHeader(true);
-      } else {
-        setHideHeader(false);
-      }
-
-      lastScrollY.current = currentScrollY;
+      const isAtTop = window.scrollY <= 10;
+      setHideHeader(!isAtTop);
     };
 
     window.addEventListener("scroll", handleScroll);
+    handleScroll(); // chama na montagem
+
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [scrollingDown]);
+  }, []);
 
   // Fechar menu mobile ao clicar em um item
   const handleMobileNavigate = (section: string) => {
     onNavigate(section);
     setIsMobileMenuOpen(false);
   };
-
-  // Fechar menu mobile ao redimensionar para desktop
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth >= 1024) {
-        setIsMobileMenuOpen(false);
-      }
-    };
-
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
 
   const menuItems = [
     { id: "inicio", label: "Início" },
