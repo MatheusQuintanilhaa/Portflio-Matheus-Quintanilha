@@ -184,3 +184,31 @@ body {
   animation: border-grow 0.3s ease-out forwards;
   border-color: #8b5cf6;
 }
+
+/* Animação de digitação visual sem impactar LCP */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    border-color: transparent;
+  }
+  50% {
+    border-color: #fff;
+  }
+}
+
+.animate-typing {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: typing 2.5s steps(30, end), blink 0.75s step-end infinite;
+  border-right: 2px solid white;
+}
