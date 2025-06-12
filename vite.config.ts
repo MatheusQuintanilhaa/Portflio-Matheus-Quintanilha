@@ -3,6 +3,11 @@ import react from "@vitejs/plugin-react";
 
 export default defineConfig({
   plugins: [react()],
+  server: {
+    port: 5173,
+    host: true, // Permite acesso externo
+    // HTTPS removido - vamos usar outra solução
+  },
   build: {
     rollupOptions: {
       output: {
