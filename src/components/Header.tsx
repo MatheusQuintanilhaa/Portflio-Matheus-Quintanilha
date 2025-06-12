@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef, memo, useCallback } from "react";
 import { Menu, X } from "lucide-react";
 
 interface HeaderProps {
@@ -6,36 +6,95 @@ interface HeaderProps {
   onNavigate: (section: string) => void;
 }
 
-export default function Header({ activeSection, onNavigate }: HeaderProps) {
+// Função debounce para otimizar scroll handlers
+function debounce<T extends (...args: unknown[]) => void>(
+  func: T,
+  wait: number
+) {
+  let timeout: number;
+  return function executedFunction(...args: Parameters<T>) {
+    const later = () => {
+      clearTimeout(timeout);
+      func(...args);
+    };
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+  };
+}
+
+// Memoizar o array de items para evitar re-criações
+const menuItems = [
+  { id: "inicio", label: "Início" },
+  { id: "sobre", label: "Sobre mim" },
+  { id: "projetos", label: "Projetos" },
+  { id: "conhecimentos", label: "Conhecimentos" },
+  { id: "contato", label: "Contato" },
+];
+
+// Componente memoizado
+export default memo(function Header({
+  activeSection,
+  onNavigate,
+}: HeaderProps) {
   const [hideHeader, setHideHeader] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const lastScrollY = useRef(0);
 
-  // Lógica para mostrar o header somente no topo da página
+  // Handler de scroll otimizado com debounce
+  const handleScroll = useCallback(
+    debounce(() => {
+      const currentScrollY = window.scrollY;
+
+      // Lógica simplificada para hide/show header
+      if (currentScrollY <= 10) {
+        setHideHeader(false); // Sempre mostrar no topo
+      } else if (currentScrollY > lastScrollY.current && currentScrollY > 100) {
+        setHideHeader(true); // Esconder ao scrollar para baixo
+      } else if (currentScrollY < lastScrollY.current) {
+        setHideHeader(false); // Mostrar ao scrollar para cima
+      }
+
+      lastScrollY.current = currentScrollY;
+    }, 16), // 60fps
+    []
+  );
+
   useEffect(() => {
-    const handleScroll = () => {
-      const isAtTop = window.scrollY <= 10;
-      setHideHeader(!isAtTop);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    handleScroll(); // chama na montagem
-
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
+  }, [handleScroll]);
+
+  // Handler memoizado para navegação mobile
+  const handleMobileNavigate = useCallback(
+    (section: string) => {
+      onNavigate(section);
+      setIsMobileMenuOpen(false);
+    },
+    [onNavigate]
+  );
+
+  // Handler memoizado para toggle do menu
+  const toggleMobileMenu = useCallback(() => {
+    setIsMobileMenuOpen((prev) => !prev);
   }, []);
 
-  // Fechar menu mobile ao clicar em um item
-  const handleMobileNavigate = (section: string) => {
-    onNavigate(section);
+  // Handler memoizado para fechar menu mobile
+  const closeMobileMenu = useCallback(() => {
     setIsMobileMenuOpen(false);
-  };
+  }, []);
 
-  const menuItems = [
-    { id: "inicio", label: "Início" },
-    { id: "sobre", label: "Sobre mim" },
-    { id: "projetos", label: "Projetos" },
-    { id: "conhecimentos", label: "Conhecimentos" },
-    { id: "contato", label: "Contato" },
-  ];
+  // Fechar menu mobile ao redimensionar para desktop
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 1024) {
+        // lg breakpoint
+        setIsMobileMenuOpen(false);
+      }
+    };
+
+    window.addEventListener("resize", handleResize, { passive: true });
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
     <>
@@ -60,7 +119,13 @@ export default function Header({ activeSection, onNavigate }: HeaderProps) {
                     lineHeight: "normal",
                   }}
                 >
-                  <span className="absolute inset-0 rounded-full border-2 border-transparent group-hover:border-purple-600 group-hover:animate-border-grow"></span>
+                  <span
+                    className={`absolute inset-0 rounded-full border-2 border-transparent ${
+                      activeSection === item.id
+                        ? "border-purple-600"
+                        : "group-hover:animate-border-grow"
+                    }`}
+                  ></span>
                   {item.label}
                 </button>
               </li>
@@ -76,7 +141,7 @@ export default function Header({ activeSection, onNavigate }: HeaderProps) {
 
             {/* Mobile Menu Button */}
             <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              onClick={toggleMobileMenu}
               className="p-2 rounded-lg text-gray-300 hover:text-white hover:bg-gray-800 transition-colors"
               aria-label="Toggle menu"
             >
@@ -88,8 +153,14 @@ export default function Header({ activeSection, onNavigate }: HeaderProps) {
 
       {/* Mobile Menu Overlay */}
       {isMobileMenuOpen && (
-        <div className="lg:hidden fixed inset-0 z-40 bg-black bg-opacity-50 backdrop-blur-sm">
-          <div className="fixed top-0 right-0 h-full w-80 max-w-[85vw] bg-gradient-to-b from-purple-900/95 to-black/95 backdrop-blur-lg shadow-2xl">
+        <div
+          className="lg:hidden fixed inset-0 z-40 bg-black bg-opacity-50 backdrop-blur-sm"
+          onClick={closeMobileMenu} // Fechar ao clicar no overlay
+        >
+          <div
+            className="fixed top-0 right-0 h-full w-80 max-w-[85vw] bg-gradient-to-b from-purple-900/95 to-black/95 backdrop-blur-lg shadow-2xl"
+            onClick={(e) => e.stopPropagation()} // Prevenir fechamento ao clicar no menu
+          >
             <div className="h-full flex flex-col pt-20 px-6">
               <ul className="space-y-4 flex-1">
                 {menuItems.map((item) => (
@@ -129,4 +200,4 @@ export default function Header({ activeSection, onNavigate }: HeaderProps) {
       )}
     </>
   );
-}
+});

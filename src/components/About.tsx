@@ -1,6 +1,6 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, memo } from "react";
 
-export default function About() {
+const About = memo(() => {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
 
@@ -175,4 +175,8 @@ export default function About() {
       </div>
     </section>
   );
-}
+});
+
+About.displayName = "About";
+
+export default About;
