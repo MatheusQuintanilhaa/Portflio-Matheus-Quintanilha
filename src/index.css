@@ -212,3 +212,43 @@ body {
   animation: typing 2.5s steps(30, end), blink 0.75s step-end infinite;
   border-right: 2px solid white;
 }
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes scroll-right {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.animate-scroll-left {
+  animation: scroll-left 40s linear infinite;
+}
+
+.animate-scroll-right {
+  animation: scroll-right 45s linear infinite;
+}
+
+.animate-scroll-left.paused,
+.animate-scroll-right.paused {
+  animation-play-state: paused;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
