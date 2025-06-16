@@ -232,11 +232,11 @@ body {
 }
 
 .animate-scroll-left {
-  animation: scroll-left 40s linear infinite;
+  animation: scroll-left 20s linear infinite;
 }
 
 .animate-scroll-right {
-  animation: scroll-right 45s linear infinite;
+  animation: scroll-right 25s linear infinite;
 }
 
 .animate-scroll-left.paused,
