@@ -213,6 +213,7 @@ body {
   border-right: 2px solid white;
 }
 
+/* Keyframes para animações de scroll */
 @keyframes scroll-left {
   0% {
     transform: translateX(0);
@@ -231,6 +232,7 @@ body {
   }
 }
 
+/* Animações de Scroll - Desktop (padrão) */
 .animate-scroll-left {
   animation: scroll-left 20s linear infinite;
 }
@@ -242,6 +244,26 @@ body {
 .animate-scroll-left.paused,
 .animate-scroll-right.paused {
   animation-play-state: paused;
+}
+
+@media (max-width: 767px) {
+  .animate-scroll-left {
+    animation: scroll-left 10s linear infinite;
+  }
+
+  .animate-scroll-right {
+    animation: scroll-right 12s linear infinite;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .animate-scroll-left {
+    animation: scroll-left 15s linear infinite;
+  }
+
+  .animate-scroll-right {
+    animation: scroll-right 18s linear infinite;
+  }
 }
 
 .scrollbar-hide {
