@@ -197,14 +197,14 @@ export default function ContactIcons() {
         </div>
 
         {/* Contact Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 lg:gap-10 max-w-6xl mx-auto mt-[81px]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 lg:gap-10 max-w-6xl mx-auto mt-[81px]">
           {contacts.map((contact, index) => {
             const IconComponent = contact.icon;
             return (
               <div
                 key={contact.id}
                 data-card-id={contact.id}
-                className={`w-full max-w-[280px] mx-auto md:w-[280px] h-[240px] rounded-[12px] p-[2px] transition-all duration-500 ease-out group cursor-pointer relative
+                className={`w-full max-w-[280px] mx-auto h-[240px] rounded-[12px] p-[2px] transition-all duration-500 ease-out group cursor-pointer relative
                   ${
                     visibleCards.has(contact.id)
                       ? "opacity-100 translate-y-0"
@@ -261,15 +261,15 @@ export default function ContactIcons() {
           })}
         </div>
 
-        {/* Additional Info Section - 3 cards em linha */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto mt-16">
+        {/* Additional Info Section - Layout igual aos cards principais */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-10 max-w-6xl mx-auto mt-16">
           {additionalInfo.map((info, index) => {
             const IconComponent = info.icon;
             return (
               <div
                 key={info.id}
                 data-card-id={info.id}
-                className={`w-full max-w-[400px] mx-auto h-[180px] rounded-[12px] p-[2px] transition-all duration-500 ease-out group relative
+                className={`w-full max-w-[280px] mx-auto h-[240px] rounded-[12px] p-[2px] transition-all duration-500 ease-out group relative
                   ${
                     visibleCards.has(info.id)
                       ? "opacity-100 translate-y-0"
@@ -284,24 +284,25 @@ export default function ContactIcons() {
                 }}
               >
                 <div className="flex flex-col justify-start h-full rounded-[10px] bg-[#101010] relative overflow-hidden p-6">
-                  <div className="flex items-center gap-4 mb-4">
-                    <div
-                      className={`w-12 h-12 bg-gradient-to-br ${info.color} rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}
-                    >
-                      <IconComponent className="w-6 h-6 text-white" />
-                    </div>
-                    <div>
-                      <h3 className="text-lg font-semibold text-white group-hover:text-[#964CF0] transition-colors duration-300">
-                        {info.title}
-                      </h3>
-                      <p className="text-white group-hover:text-gray-200 transition-colors duration-300">
-                        {info.subtitle}
-                      </p>
-                    </div>
+                  {/* Icon - igual aos cards principais */}
+                  <div
+                    className={`w-14 h-14 rounded-xl bg-gradient-to-br ${info.color} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}
+                  >
+                    <IconComponent className="w-7 h-7 text-white" />
                   </div>
-                  <p className="text-sm text-gray-400 group-hover:text-gray-300 transition-colors duration-300">
-                    {info.description}
-                  </p>
+
+                  {/* Content - mesmo layout dos cards principais */}
+                  <div className="space-y-2 flex-1">
+                    <h3 className="text-lg font-semibold text-white group-hover:text-[#964CF0] transition-colors duration-300">
+                      {info.title}
+                    </h3>
+                    <p className="text-sm font-medium text-gray-200 group-hover:text-white transition-colors duration-300">
+                      {info.subtitle}
+                    </p>
+                    <p className="text-xs text-gray-400 group-hover:text-gray-300 transition-colors duration-300">
+                      {info.description}
+                    </p>
+                  </div>
                 </div>
               </div>
             );
@@ -309,27 +310,47 @@ export default function ContactIcons() {
         </div>
 
         {/* Call to Action */}
-        <div className="text-center mt-20">
-          <div className="bg-gradient-to-r from-[#964CF0] to-purple-600 rounded-[12px] p-12 text-white max-w-4xl mx-auto">
-            <h3 className="text-3xl font-bold mb-4">
-              Pronto para começar seu projeto?
-            </h3>
-            <p className="text-xl opacity-90 mb-8 max-w-2xl mx-auto">
-              Vamos transformar suas ideias em realidade. Entre em contato e
-              vamos discutir como posso ajudar você.
-            </p>
-            <button
-              onClick={() =>
-                window.open(
-                  "https://wa.me/5522992553397?text=Olá%20Matheus!%20Gostei%20do%20seu%20trabalho%20e%20gostaria%20de%20conversar%20sobre%20uma%20oportunidade.",
-                  "_blank"
-                )
+        <div className="w-full max-w-6xl mx-auto mt-20 px-4">
+          <div
+            data-card-id={8}
+            className={`w-full max-w-[280px] sm:max-w-[400px] mx-auto h-auto min-h-[240px] rounded-[12px] p-[2px] transition-all duration-500 ease-out group cursor-pointer relative
+              ${
+                visibleCards.has(8)
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-8"
               }
-              className="bg-white text-[#964CF0] px-8 py-4 rounded-xl font-semibold hover:bg-gray-100 transition-colors duration-300 inline-flex items-center gap-2 hover:scale-105 transform"
-            >
-              <Phone className="w-5 h-5" />
-              Conversar no WhatsApp
-            </button>
+              hover:scale-105 hover:-translate-y-2 hover:shadow-2xl hover:shadow-purple-500/20
+              bg-gradient-to-b from-[#964CF0] to-[#170033]
+              overflow-hidden before:absolute before:inset-0 before:bg-gradient-to-r before:from-transparent before:via-white/10 before:to-transparent before:-translate-x-full hover:before:translate-x-full before:transition-transform before:duration-1000 before:ease-out
+            `}
+            style={{
+              animationDelay: "1200ms",
+            }}
+            onClick={() =>
+              window.open(
+                "https://wa.me/5522992553397?text=Olá%20Matheus!%20Gostei%20do%20seu%20trabalho%20e%20gostaria%20de%20conversar%20sobre%20uma%20oportunidade.",
+                "_blank"
+              )
+            }
+          >
+            <div className="flex flex-col justify-center items-center h-full min-h-[236px] rounded-[10px] bg-[#101010] relative overflow-hidden p-6 text-center">
+              {/* Content */}
+              <div className="space-y-3">
+                <h3 className="text-lg sm:text-xl font-bold text-white group-hover:text-[#964CF0] transition-colors duration-300">
+                  Pronto para começar seu projeto?
+                </h3>
+
+                <p className="text-sm text-gray-300 group-hover:text-white transition-colors duration-300 leading-relaxed">
+                  Vamos transformar suas ideias em realidade. Entre em contato e
+                  vamos discutir como posso ajudar você.
+                </p>
+
+                <div className="inline-flex items-center gap-2 text-xs font-medium text-[#964CF0] group-hover:text-purple-400 transition-colors duration-300 mt-4">
+                  <ExternalLink className="w-3 h-3" />
+                  Conversar no WhatsApp
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
