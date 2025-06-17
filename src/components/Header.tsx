@@ -40,18 +40,16 @@ export default memo(function Header({
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const lastScrollY = useRef(0);
 
-  // Handler de scroll otimizado com debounce
+  // Handler de scroll otimizado com debounce - MODIFICADO
   const handleScroll = useCallback(
     debounce(() => {
       const currentScrollY = window.scrollY;
 
-      // Lógica simplificada para hide/show header
-      if (currentScrollY <= 10) {
-        setHideHeader(false); // Sempre mostrar no topo
-      } else if (currentScrollY > lastScrollY.current && currentScrollY > 100) {
-        setHideHeader(true); // Esconder ao scrollar para baixo
-      } else if (currentScrollY < lastScrollY.current) {
-        setHideHeader(false); // Mostrar ao scrollar para cima
+      // Lógica modificada: header só aparece quando voltar ao topo (scrollY <= 50)
+      if (currentScrollY <= 50) {
+        setHideHeader(false); // Mostrar quando próximo ao topo
+      } else if (currentScrollY > 100) {
+        setHideHeader(true); // Esconder quando rolar para baixo após 100px
       }
 
       lastScrollY.current = currentScrollY;
@@ -119,13 +117,7 @@ export default memo(function Header({
                     lineHeight: "normal",
                   }}
                 >
-                  <span
-                    className={`absolute inset-0 rounded-full border-2 border-transparent ${
-                      activeSection === item.id
-                        ? "border-purple-600"
-                        : "group-hover:animate-border-grow"
-                    }`}
-                  ></span>
+                  <span className="absolute inset-0 rounded-full border-2 border-transparent group-hover:animate-border-grow"></span>
                   {item.label}
                 </button>
               </li>
