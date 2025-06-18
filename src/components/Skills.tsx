@@ -91,7 +91,6 @@ const Skills = memo(() => {
           {/* Header */}
           <div className="text-center mb-16">
             <div className="inline-flex items-center justify-center px-8 py-3 rounded-lg border-2 border-[#964CF0] bg-gradient-to-r from-[#101010] to-[#1a1a1a] text-white font-sans font-semibold text-lg mb-6 shadow-lg">
-              <span className="mr-2">⚡</span>
               Tecnologias
             </div>
 
@@ -190,7 +189,7 @@ const Skills = memo(() => {
             </div>
             <div className="text-center p-6 rounded-xl bg-gradient-to-br from-gray-900/50 to-gray-800/30 border border-gray-700/50">
               <div className="text-3xl font-bold text-white mb-2">3+</div>
-              <div className="text-gray-400 text-sm">Anos de Experiência</div>
+              <div className="text-gray-400 text-sm">Anos na Área</div>
             </div>
             <div className="text-center p-6 rounded-xl bg-gradient-to-br from-gray-900/50 to-gray-800/30 border border-gray-700/50">
               <div className="text-3xl font-bold text-white mb-2">50+</div>

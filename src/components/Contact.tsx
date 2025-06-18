@@ -10,6 +10,7 @@ import {
   Copy,
   CheckCircle,
   Briefcase,
+  Github,
 } from "lucide-react";
 
 export default function ContactIcons() {
@@ -58,6 +59,21 @@ export default function ContactIcons() {
     },
     {
       id: 4,
+      icon: Github,
+      title: "GitHub",
+      subtitle: "@MatheusQuintanilhaa",
+      description: "Veja meus projetos e código",
+      link: "https://github.com/MatheusQuintanilhaa",
+      external: true,
+      color: "from-gray-600 to-gray-800",
+      bgColor: "bg-gray-600/20",
+      hoverColor: "hover:bg-gray-600/10",
+    },
+  ];
+
+  const additionalInfo = [
+    {
+      id: 5,
       icon: Phone,
       title: "WhatsApp",
       subtitle: "(22) 99255-3397",
@@ -68,11 +84,8 @@ export default function ContactIcons() {
       bgColor: "bg-green-500/20",
       hoverColor: "hover:bg-green-500/10",
     },
-  ];
-
-  const additionalInfo = [
     {
-      id: 5,
+      id: 6,
       icon: MapPin,
       title: "Localização",
       subtitle: "Araruama, Rio de Janeiro, BR",
@@ -81,7 +94,7 @@ export default function ContactIcons() {
       color: "from-orange-500 to-red-500",
     },
     {
-      id: 6,
+      id: 7,
       icon: Calendar,
       title: "Tempo de Resposta",
       subtitle: "Até 24 horas",
@@ -90,10 +103,10 @@ export default function ContactIcons() {
       color: "from-[#964CF0] to-purple-500",
     },
     {
-      id: 7,
+      id: 8,
       icon: Briefcase,
-      title: "Disponível para Estágio",
-      subtitle: "Buscando oportunidade",
+      title: "Aberto a Oportunidades",
+      subtitle: "Crescimento profissional",
       description: "Disponível para início imediato (remoto ou híbrido).",
       color: "from-emerald-500 to-teal-500",
     },
@@ -177,7 +190,7 @@ export default function ContactIcons() {
 
           <h2 className="text-[32px] md:text-[48px] leading-[100%] font-semibold text-center text-white mx-auto mt-7">
             Vamos{" "}
-            <span className="bg-gradient-to-r from-[#964CF0] to-purple-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-[#C28FFF] via-[#964CF0] to-[#8B4FE6] bg-clip-text text-transparent">
               conversar
             </span>
           </h2>
@@ -262,14 +275,14 @@ export default function ContactIcons() {
         </div>
 
         {/* Additional Info Section - Layout igual aos cards principais */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-10 max-w-6xl mx-auto mt-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 lg:gap-10 max-w-6xl mx-auto mt-16">
           {additionalInfo.map((info, index) => {
             const IconComponent = info.icon;
             return (
               <div
                 key={info.id}
                 data-card-id={info.id}
-                className={`w-full max-w-[280px] mx-auto h-[240px] rounded-[12px] p-[2px] transition-all duration-500 ease-out group relative
+                className={`w-full max-w-[280px] mx-auto h-[240px] rounded-[12px] p-[2px] transition-all duration-500 ease-out group cursor-pointer relative
                   ${
                     visibleCards.has(info.id)
                       ? "opacity-100 translate-y-0"
@@ -282,6 +295,10 @@ export default function ContactIcons() {
                 style={{
                   animationDelay: `${(index + 4) * 150}ms`,
                 }}
+                onClick={() =>
+                  info.link &&
+                  window.open(info.link, info.external ? "_blank" : "_self")
+                }
               >
                 <div className="flex flex-col justify-start h-full rounded-[10px] bg-[#101010] relative overflow-hidden p-6">
                   {/* Icon - igual aos cards principais */}
@@ -293,9 +310,14 @@ export default function ContactIcons() {
 
                   {/* Content - mesmo layout dos cards principais */}
                   <div className="space-y-2 flex-1">
-                    <h3 className="text-lg font-semibold text-white group-hover:text-[#964CF0] transition-colors duration-300">
-                      {info.title}
-                    </h3>
+                    <div className="flex items-center justify-between">
+                      <h3 className="text-lg font-semibold text-white group-hover:text-[#964CF0] transition-colors duration-300">
+                        {info.title}
+                      </h3>
+                      {info.external && (
+                        <ExternalLink className="w-4 h-4 text-white group-hover:text-gray-300 transition-colors" />
+                      )}
+                    </div>
                     <p className="text-sm font-medium text-gray-200 group-hover:text-white transition-colors duration-300">
                       {info.subtitle}
                     </p>
@@ -312,10 +334,10 @@ export default function ContactIcons() {
         {/* Call to Action */}
         <div className="w-full max-w-6xl mx-auto mt-20 px-4">
           <div
-            data-card-id={8}
+            data-card-id={9}
             className={`w-full max-w-[280px] sm:max-w-[400px] mx-auto h-auto min-h-[240px] rounded-[12px] p-[2px] transition-all duration-500 ease-out group cursor-pointer relative
               ${
-                visibleCards.has(8)
+                visibleCards.has(9)
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-8"
               }

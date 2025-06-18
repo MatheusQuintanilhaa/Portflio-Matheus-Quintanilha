@@ -94,7 +94,10 @@ export default function Projects() {
           </span>
 
           <h2 className="w-full max-w-[332px] h-[58px] text-[32px] md:text-[48px] leading-[100%] font-semibold text-center text-white mx-auto mt-7">
-            Meus projetos
+            Meus{" "}
+            <span className="bg-gradient-to-r from-[#C28FFF] via-[#964CF0] to-[#8B4FE6] bg-clip-text text-transparent">
+              projetos
+            </span>
           </h2>
         </div>
 
