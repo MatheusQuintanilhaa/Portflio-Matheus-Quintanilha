@@ -77,7 +77,7 @@ export default function ContactIcons() {
       icon: Phone,
       title: "WhatsApp",
       subtitle: "(22) 99255-3397",
-      description: "Conversa rápida e direta",
+      description: "Fale comigo diretamente",
       link: "https://wa.me/5522992553397?text=Olá%20Matheus!%20Gostei%20do%20seu%20trabalho%20e%20gostaria%20de%20conversar%20sobre%20uma%20oportunidade.",
       external: true,
       color: "from-green-500 to-emerald-500",
@@ -88,9 +88,9 @@ export default function ContactIcons() {
       id: 6,
       icon: MapPin,
       title: "Localização",
-      subtitle: "Araruama, Rio de Janeiro, BR",
+      subtitle: "Rio de Janeiro - RJ",
       description:
-        "Trabalho remotamente com clientes do Brasil e exterior. Disponível para reuniões presenciais na região.",
+        "Trabalho remotamente com clientes do Brasil. Disponível para reuniões presenciais na região.",
       color: "from-orange-500 to-red-500",
     },
     {

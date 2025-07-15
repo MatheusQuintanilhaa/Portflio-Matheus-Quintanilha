@@ -7,35 +7,40 @@ export default function Projects() {
   const projects = [
     {
       id: 1,
-      name: "E-commerce Platform",
+      name: "LinkShort - URL Shortener",
       description:
-        "Aqui vai uma pequena descrição sobre o projeto e as ferramentas utilizadas.",
-      image: "",
-      tech: ["React", "Next.js", "Tailwind"],
+        "Uma aplicação moderna para encurtamento de URLs com analytics integrados e design responsivo.",
+      image: "/images/projects/encurtador.png",
+      tech: ["React", "Vite", "TailwindCSS", "JavaScript"],
+      liveUrl: "https://url-shortener-wine-psi.vercel.app/",
+      githubUrl: "https://github.com/MatheusQuintanilhaa/url-shortener",
     },
     {
       id: 2,
-      name: "Dashboard Analytics",
+      name: "Fashion-Ecommerce",
       description:
-        "Aqui vai uma pequena descrição sobre o projeto e as ferramentas utilizadas.",
-      image: "",
-      tech: ["Vue.js", "Chart.js", "CSS"],
+        "E-commerce completo com carrinho funcional e busca em tempo real",
+      image: "/images/projects/fashion-ecommerce.PNG",
+      tech: ["Next.js", "TypeScript", "Tailwind CSS", "Context API"],
+      liveUrl: "https://fashion-ecommerce-blue.vercel.app/",
     },
     {
       id: 3,
-      name: "Task Manager App",
+      name: "PetHelpful",
       description:
-        "Aqui vai uma pequena descrição sobre o projeto e as ferramentas utilizadas.",
-      image: "",
-      tech: ["React", "TypeScript", "Sass"],
+        "Chatbot inteligente com IA Gemini para orientações sobre cuidados com pets.",
+      image: "/images/projects/chatbot-pethelful.PNG",
+      tech: ["Python", "Google Gemini AI", "IA Generativa", "API Integration"],
+      liveUrl: "https://github.com/MatheusQuintanilhaa/chatbot-pethelful",
     },
     {
       id: 4,
-      name: "Portfolio Website",
+      name: "Crypto Dashboard",
       description:
-        "Aqui vai uma pequena descrição sobre o projeto e as ferramentas utilizadas.",
-      image: "",
-      tech: ["HTML", "JavaScript", "CSS"],
+        "Dashboard para monitoramento de criptomoedas com gráficos e portfolio tracker.",
+      image: "/images/projects/crypto-dash.PNG",
+      tech: ["React", "TypeScript", "React Query", "Recharts"],
+      liveUrl: "https://crypto-dashboard.vercel.app/",
     },
     {
       id: 5,
@@ -106,6 +111,11 @@ export default function Projects() {
             <div
               key={project.id}
               data-card-id={project.id}
+              onClick={() => {
+                if (project.liveUrl) {
+                  window.open(project.liveUrl, "_blank");
+                }
+              }}
               className={`w-full max-w-[384px] mx-auto md:w-[384px] h-[380px] rounded-[12px] p-[2px] transition-all duration-500 ease-out group cursor-pointer relative
                 ${
                   visibleCards.has(project.id)
@@ -123,6 +133,15 @@ export default function Projects() {
               <div className="flex flex-col justify-start h-full rounded-[10px] bg-[#101010] relative overflow-hidden">
                 {/* Imagem do projeto com overlay de hover */}
                 <div className="relative w-[calc(100%-32px)] max-w-[352px] h-[156px] rounded-[8px] bg-gradient-to-br from-[#964CF0] to-[#6B46C1] mx-auto mt-4 overflow-hidden group-hover:scale-105 transition-transform duration-300">
+                  {/* Se houver imagem, mostrar ela, senão mostrar o gradiente */}
+                  {project.image ? (
+                    <img
+                      src={project.image}
+                      alt={project.name}
+                      className="w-full h-full object-cover brightness-90 group-hover:brightness-100 transition-all duration-300"
+                    />
+                  ) : null}
+
                   {/* Overlay com efeito de zoom */}
                   <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                     <div className="text-white font-semibold text-lg transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
