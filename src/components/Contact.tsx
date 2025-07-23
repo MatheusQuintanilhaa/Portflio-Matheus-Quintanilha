@@ -25,7 +25,7 @@ export default function ContactIcons() {
       title: "Currículo",
       subtitle: "Download PDF",
       description: "Veja minha experiência completa",
-      link: "/curriculo-matheus-quintanilha.pdf",
+      link: "/MatheusQuintanilha_Curriculo_DesenvolvedorFrontend.pdf",
       external: false,
       download: true,
       color: "from-blue-500 to-cyan-500",
