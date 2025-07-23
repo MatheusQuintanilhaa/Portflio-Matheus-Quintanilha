@@ -17,8 +17,9 @@ const Skills = memo(() => {
       icon: "/images/logos/bootstrap.svg",
       color: "#7952B3",
     },
-    { name: "Figma", icon: "/images/logos/figma.svg", color: "#F24E1E" },
+    { name: "Figma", icon: "/images/logos/figma.svg", color: "#EA3D4A" },
     { name: "Git", icon: "/images/logos/git.svg", color: "#F05032" },
+    { name: "Node.js", icon: "/images/logos/node.svg", color: "#21A265" },
     {
       name: "Storybook",
       icon: "/images/logos/storybook.svg",
@@ -188,7 +189,7 @@ const Skills = memo(() => {
               <div className="text-gray-400 text-sm">Tecnologias</div>
             </div>
             <div className="text-center p-6 rounded-xl bg-gradient-to-br from-gray-900/50 to-gray-800/30 border border-gray-700/50">
-              <div className="text-3xl font-bold text-white mb-2">3+</div>
+              <div className="text-3xl font-bold text-white mb-2">2+</div>
               <div className="text-gray-400 text-sm">Anos na Área</div>
             </div>
             <div className="text-center p-6 rounded-xl bg-gradient-to-br from-gray-900/50 to-gray-800/30 border border-gray-700/50">

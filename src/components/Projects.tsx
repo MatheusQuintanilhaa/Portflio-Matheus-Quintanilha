@@ -44,11 +44,12 @@ export default function Projects() {
     },
     {
       id: 5,
-      name: "Weather App",
+      name: "Feira de trocas comunitária",
       description:
-        "Aqui vai uma pequena descrição sobre o projeto e as ferramentas utilizadas.",
-      image: "",
-      tech: ["React", "API", "Styled Components"],
+        "Uma plataforma para troca de itens entre usuários, promovendo a sustentabilidade.",
+      image: "/images/projects/feira-trocas.PNG",
+      tech: ["React", "Node.js", "Express", "PostgreSQL"],
+      liveUrl: "https://feira-de-trocas-comunitaria.vercel.app/",
     },
     {
       id: 6,
@@ -152,14 +153,14 @@ export default function Projects() {
 
                 <div className="w-[calc(100%-32px)] max-w-[352px] h-[156px] gap-4 p-1 flex flex-col mx-auto mt-4">
                   <h3
-                    className="w-full text-white font-inter font-semibold text-[20px] md:text-[24px] leading-[120%] 
-                               group-hover:text-[#964CF0] transition-colors duration-300"
+                    className="w-full text-white font-inter font-semibold text-[20px] md:text-[24px] leading-[120%]
+                                group-hover:text-[#964CF0] transition-colors duration-300"
                   >
                     {project.name}
                   </h3>
 
                   <p
-                    className="w-full text-gray-300 font-inter font-medium text-[16px] md:text-[18px] leading-[140%] 
+                    className="w-full text-gray-300 font-inter font-medium text-[16px] md:text-[18px] leading-[140%]
                               group-hover:text-white transition-colors duration-300"
                   >
                     {project.description}
