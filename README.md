@@ -1,54 +1,82 @@
-# React + TypeScript + Vite
+# 🚀 Portfólio | Matheus Quintanilha
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Bem-vindo ao meu portfólio! Aqui você encontra meus principais projetos desenvolvidos com foco em **Frontend Moderno**, utilizando as melhores práticas do mercado e tecnologias de ponta.
 
-Currently, two official plugins are available:
+![Capa do Portfólio](./public/images/projects/portfolio-cover.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## ✨ Sobre
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Este portfólio foi criado para apresentar meus projetos, habilidades e experiências como **Desenvolvedor Frontend**. Busco sempre entregar soluções escaláveis, performáticas e com excelente experiência de usuário.
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+---
+
+## 🛠️ Stack Principal
+
+- **React 18** + **TypeScript**
+- **Vite** (build ultra-rápido)
+- **Tailwind CSS** (UI moderna e responsiva)
+- **shadcn/ui** (componentização elegante)
+- **React Query** (data fetching e cache)
+- **Recharts** (gráficos interativos)
+- **Context API** (gerenciamento de estado)
+- **ESLint + Prettier** (código limpo e padronizado)
+
+---
+
+## 🌟 Principais Projetos
+
+| Projeto                       | Tecnologias                                | Demo / Código                                                                                                               |
+| ----------------------------- | ------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------- |
+| **Crypto Dashboard**          | React, TypeScript, React Query, Recharts   | [Demo](https://crypto-dashboard-gamma-kohl.vercel.app/) / [GitHub](https://github.com/MatheusQuintanilhaa/crypto-dashboard) |
+| **Fashion E-commerce**        | Next.js, TypeScript, Tailwind, Context API | [Demo](https://fashion-ecommerce-blue.vercel.app/) / [GitHub](https://github.com/MatheusQuintanilhaa/fashion-ecommerce)     |
+| **LinkShort - URL Shortener** | React, Vite, Tailwind, JavaScript          | [Demo](https://url-shortener-wine-psi.vercel.app/) / [GitHub](https://github.com/MatheusQuintanilhaa/url-shortener)         |
+| **PetHelpful (Chatbot IA)**   | Python, Google Gemini AI, API Integration  | [GitHub](https://github.com/MatheusQuintanilhaa/chatbot-pethelful)                                                          |
+
+---
+
+## 🚩 Diferenciais
+
+- **Performance:** Lighthouse Score 90+ em todos os projetos
+- **Responsividade:** Mobile-first em toda a interface
+- **Acessibilidade:** Foco em boas práticas de acessibilidade web
+- **Código limpo:** Componentização, tipagem forte e padronização
+- **Deploy contínuo:** Projetos hospedados no Vercel
+
+---
+
+## 📦 Como rodar localmente
+
+```bash
+# Clone o repositório
+git clone https://github.com/MatheusQuintanilhaa/portfolio-2.git
+
+# Instale as dependências
+npm install
+
+# Rode o projeto
+npm run dev
+
+# Acesse em http://localhost:5173
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 💡 Aprendizados & Desafios
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+- Integração de múltiplas APIs públicas e privadas
+- Otimização de performance e bundle size
+- Criação de hooks customizados e componentes reutilizáveis
+- Implementação de dark mode e temas dinâmicos
+- Deploy automatizado com Vercel
+
+---
+
+## 📫 Contato
+
+- **LinkedIn:** [matheus-quintanilhadev](https://www.linkedin.com/in/matheus-quintanilhadev/)
+- **E-mail:** matheussantos.quintanilha@gmail.com
+- **Portfólio Online:** [Acesse aqui](https://portflio-matheus-quintanilha.vercel.app/)
+
+---

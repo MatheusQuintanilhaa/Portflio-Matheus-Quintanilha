@@ -26,12 +26,12 @@ export default function Projects() {
     },
     {
       id: 3,
-      name: "PetHelpful",
+      name: "WeatherPro",
       description:
-        "Chatbot inteligente com IA Gemini para orientações sobre cuidados com pets.",
-      image: "/images/projects/chatbot-pethelful.PNG",
-      tech: ["Python", "Google Gemini AI", "IA Generativa", "API Integration"],
-      liveUrl: "https://github.com/MatheusQuintanilhaa/chatbot-pethelful",
+        "Uma aplicação para previsão do tempo com dados em tempo real.",
+      image: "images/projects/weatherpro.PNG",
+      tech: ["React", "JavaScript", "Tailwind CSS", "OpenWeather API"],
+      liveUrl: "https://weather-pro-omega.vercel.app/",
     },
     {
       id: 4,
@@ -53,11 +53,12 @@ export default function Projects() {
     },
     {
       id: 6,
-      name: "Social Media Dashboard",
+      name: "PetHelpful",
       description:
-        "Aqui vai uma pequena descrição sobre o projeto e as ferramentas utilizadas.",
-      image: "",
-      tech: ["Angular", "RxJS", "Material UI"],
+        "Chatbot inteligente com IA Gemini para orientações sobre cuidados com pets.",
+      image: "/images/projects/chatbot-pethelful.PNG",
+      tech: ["Python", "Google Gemini AI", "IA Generativa", "API Integration"],
+      liveUrl: "https://github.com/MatheusQuintanilhaa/chatbot-pethelful",
     },
   ];
 
